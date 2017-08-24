@@ -1,0 +1,16 @@
+server:
+  port: 19002
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${spring.cloud.client.ipAddress}:18080/eureka/
+
+spring:
+  application:
+    name: service-feign
+
+
+feign:
+  hystrix:
+    enabled: true
