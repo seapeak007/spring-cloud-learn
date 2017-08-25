@@ -12,8 +12,11 @@
         <module name="eureka-ribbon" />
         <module name="eureka-server" />
         <module name="serice-feign" />
+        <module name="server-zipkin" />
         <module name="service-feign" />
         <module name="service-zuul" />
+        <module name="zipkin-service-hi" />
+        <module name="zipkin-service-miya" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -23,9 +26,12 @@
       <module name="eureka-ribbon" target="1.8" />
       <module name="eureka-server" target="1.8" />
       <module name="serice-feign" target="1.8" />
+      <module name="server-zipkin" target="1.8" />
       <module name="service-feign" target="1.8" />
       <module name="service-zuul" target="1.8" />
       <module name="SpringCloud-learn" target="1.8" />
+      <module name="zipkin-service-hi" target="1.8" />
+      <module name="zipkin-service-miya" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
