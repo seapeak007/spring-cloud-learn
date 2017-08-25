@@ -1,12 +1,61 @@
-server:
-  port: 18080
+#server:
+#  port: 18080
+#
+#eureka:
+#  instance:
+#    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
+#    preferIpAddress: true
+#  client:
+#    registerWithEureka: false
+#    fetchRegistry: false
+#    serviceUrl:
+#      defaultZone: http://${spring.cloud.client.ipAddress}:${server.port}/eureka/
 
+###解释###
+#package成jar后，采用下面的命令分别启动
+#java -jar eureka-server-1.0-SNAPSHOT.jar --spring.profiles.active=peer2
+###解释###
+
+
+---
+spring:
+  profiles: peer1
+server:
+  port: 18081
 eureka:
   instance:
-    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
-    preferIpAddress: true
+    hostname: peer1
   client:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${spring.cloud.client.ipAddress}:${server.port}/eureka/
+      defaultZone: http://peer2:18082/eureka/,http://peer3:18083/eureka/
+
+---
+spring:
+  profiles: peer2
+server:
+  port: 18082
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://peer1:18081/eureka/,http://peer3:18083/eureka/
+
+---
+spring:
+  profiles: peer3
+server:
+  port: 18083
+eureka:
+  instance:
+    hostname: peer3
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://peer1:18081/eureka/,http://peer2:18082/eureka/
+
