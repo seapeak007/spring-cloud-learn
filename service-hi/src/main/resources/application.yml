@@ -1,0 +1,11 @@
+server:
+  port: 19011
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${spring.cloud.client.ipAddress}:18080/eureka/
+
+spring:
+  application:
+    name: service-hi-new
